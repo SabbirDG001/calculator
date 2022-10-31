@@ -20,14 +20,20 @@ number.addEventListener('click', function(event){
 // operator click 
 operator.addEventListener('click', function(event){
     const opera = event.target.innerText;
-    if(opera !== '='){
-        field.innerText += opera;
-    }
-    else{
+    if(opera === '='){
         const calculation = eval(field.innerText);
         result.innerText = calculation;
-        console.log(calculation);
-        field.innerText = ''
+        // console.log(calculation);
+        field.innerText = '';
+    }
+    else if(opera == '<'){
+        // console.log(field.innerText);
+        const digits = field.innerText.split('');
+        digits.pop();
+        field.innerText = digits.join('');
+    }
+    else{
+        field.innerText += opera;
     }
 })
 
